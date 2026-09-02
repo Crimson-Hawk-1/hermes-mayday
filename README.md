@@ -1,7 +1,7 @@
 # 🚨 hermes-mayday
 
 <p align="center">
-  <img src="images/Gemini_Generated_Image_ym5vmyym5vmyym5v.jpg" alt="Mayday Mayday Mayday — Stop runaway AI agents" width="700">
+  <img src="images/mayday-plane-crash.jpg" alt="Mayday Mayday Mayday — Stop runaway AI agents" width="700">
 </p>
 
 **Stop runaway agents. Save your API tokens.**
