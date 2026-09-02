@@ -1,0 +1,41 @@
+name: hermes-mayday
+version: 0.1.0
+manifest_version: 2
+api_version: 1
+description: >
+  Circuit breaker plugin that detects runaway tool loops and semantic drift,
+  halting agent execution before it burns your API credits.
+  Generates forensic crash reports for human debugging.
+homepage: https://github.com/your-username/hermes-mayday
+license: MIT
+tags:
+  - guardrails
+  - safety
+  - circuit-breaker
+  - loop-detection
+
+config_schema:
+  enabled:
+    type: bool
+    default: true
+    description: "Master on/off switch for the Mayday circuit breaker."
+  max_repeats:
+    type: int
+    default: 3
+    description: "Number of consecutive identical actions before tripping the circuit breaker."
+  window_size:
+    type: int
+    default: 10
+    description: "Size of the rolling action history window to check for loops."
+  halt_mode:
+    type: str
+    default: "hard"
+    description: "Halt behavior when circuit breaker trips. 'hard' = block execution, 'soft' = warn only."
+  report_dir:
+    type: str
+    default: "./"
+    description: "Directory where crash reports are saved. Relative to agent workspace."
+  volatile_keys:
+    type: str
+    default: "timestamp,request_id,trace_id,created_at,updated_at"
+    description: "Comma-separated argument keys to strip before hashing (prevents false negatives from timestamps)."

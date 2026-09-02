@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hermes-mayday"
+version = "0.1.0"
+description = "Circuit breaker plugin for Hermes Agent — detects runaway tool loops and halts execution before it burns your API credits."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [
+    { name = "Mayday Contributors" },
+]
+keywords = ["hermes", "agent", "guardrails", "circuit-breaker", "safety", "loop-detection"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+pretty = ["rich>=13.0"]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "rich>=13.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-username/hermes-mayday"
+Documentation = "https://github.com/your-username/hermes-mayday/tree/main/docs"
+Repository = "https://github.com/your-username/hermes-mayday"
+Issues = "https://github.com/your-username/hermes-mayday/issues"
+
+[project.entry-points."hermes_agent.plugins"]
+hermes-mayday = "hermes_mayday"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hermes_mayday"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --tb=short"
+
+[tool.hatch.envs.default]
+features = ["dev"]
