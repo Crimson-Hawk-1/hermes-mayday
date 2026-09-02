@@ -25,13 +25,13 @@ When autonomous agents get stuck, they don't crash gracefully — they **loop**.
 ### Install
 
 ```bash
-pip install hermes-mayday
+pip install git+https://github.com/Crimson-Hawk-1/hermes-mayday.git
 ```
 
 For pretty terminal output with colors and panels:
 
 ```bash
-pip install hermes-mayday[pretty]
+pip install "hermes-mayday[pretty] @ git+https://github.com/Crimson-Hawk-1/hermes-mayday.git"
 ```
 
 ### Enable
